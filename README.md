@@ -11,5 +11,5 @@ I choose SQLite and create a database with following commands :
 php vendor/bin/doctrine orm:schema-tool:create
 ```
 
-This command create my db file in `data/db/` folder. This folder is ignored by git. You should execute below command
+This command creates my db file in `data/db/` folder. This folder is ignored by git. So, you should execute above command
 to see.
