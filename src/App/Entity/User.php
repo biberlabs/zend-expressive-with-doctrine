@@ -1,6 +1,9 @@
 <?php
 namespace App\Entity;
 
+use DDD\Embeddable\Color;
+use DDD\Embeddable\EmailAddress;
+use DDD\Embeddable\Fullname;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,11 +22,22 @@ class User
     protected $id;
 
     /**
-     * @var string $roleName
-     *
-     * @ORM\Column(name="name", type="string", length=100)
+     * @var Fullname $fullname
+     * @ORM\Embedded(class="DDD\Embeddable\Fullname")
      */
-    protected $name;
+    protected $fullname;
+
+    /**
+     * @var EmailAddress $email
+     * @ORM\Embedded(class="DDD\Embeddable\EmailAddress")
+     */
+    protected $email;
+
+    /**
+     * @var Color $defaultColor
+     * @ORM\Embedded(class="DDD\Embeddable\Color")
+     */
+    protected $defaultColor;
 
     /**
      * Returns the role id.
@@ -36,34 +50,60 @@ class User
     }
 
     /**
-     * Returns the name
-     *
-     * @return string $name
+     * @return Fullname
      */
-    public function getName()
+    public function getFullname()
     {
-        return $this->name;
+        return $this->fullname;
     }
 
     /**
-     * Sets the value of user name.
-     *
-     * @param string $name
-     *
-     * @return $this
+     * @param Fullname $fullname
      */
-    public function setName($name)
+    public function setFullname(Fullname $fullname)
     {
-        $this->name = $name;
+        $this->fullname = $fullname;
+    }
 
-        return $this;
+    /**
+     * @return EmailAddress
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param EmailAddress $email
+     */
+    public function setEmail(EmailAddress $email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return Color
+     */
+    public function getDefaultColor()
+    {
+        return $this->defaultColor;
+    }
+
+    /**
+     * @param Color $defaultColor
+     */
+    public function setDefaultColor(Color $defaultColor)
+    {
+        $this->defaultColor = $defaultColor;
     }
 
     public function toArray()
     {
         return array(
-            'id'   => $this->getId(),
-            'name' => $this->getName(),
+            'id'       => $this->getId(),
+            'fullname' => (string) $this->getFullname(),
+            'email'    => (string) $this->getEmail(),
+            'defaultColor' => $this->getDefaultColor() ? $this->getDefaultColor()->toArray() : null,
         );
     }
 }
