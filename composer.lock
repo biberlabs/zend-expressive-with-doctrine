@@ -4,9 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5700e3e7b5687e935f95878c1e0ceb1f",
-    "content-hash": "9fd471197385f5a2c48b1789ea2c1a0f",
+    "hash": "068474db8b54dbf4a6e0dd68d8a982ed",
+    "content-hash": "e2ed9bb85712adb0fca243ac932155c7",
     "packages": [
+        {
+            "name": "biberlabs/ddd-embeddables",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/biberlabs/ddd-embeddables.git",
+                "reference": "e8c6fd24553321594b0c2f2967090cfc6e08fec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/biberlabs/ddd-embeddables/zipball/e8c6fd24553321594b0c2f2967090cfc6e08fec8",
+                "reference": "e8c6fd24553321594b0c2f2967090cfc6e08fec8",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/orm": "^2.5",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5"
+            },
+            "suggest": {
+                "ext-gmp": "Calculate without integer limits",
+                "ext-intl": "Format Money objects with intl"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DDD\\Embeddable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "M. Yilmaz SUSLU",
+                    "email": "yilmazsuslu@gmail.com"
+                }
+            ],
+            "description": "A collection of re-usable value objects ready to use as Embeddables in Doctrine",
+            "time": "2016-10-11 14:38:17"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.1.0",
@@ -3027,7 +3071,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "roave/security-advisories": 20
+        "roave/security-advisories": 20,
+        "biberlabs/ddd-embeddables": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
